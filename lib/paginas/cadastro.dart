@@ -11,22 +11,18 @@ class Cadastro extends StatefulWidget {
 }
 
 class _CadastroState extends State<Cadastro> {
-  List<Turma> listaTurmas = [
-    Turma(nome: "Engenharia de Software", ano: "1"),
-    Turma(nome: "Engenharia Elétrica", ano: "1"),
-    Turma(nome: "Teste", ano: "1"),
-    Turma(nome: "Engenharia de Software", ano: "1"),
-  ];
-  Aluno aluno =
-      Aluno(nome: "Leonardo", turma: "Engenharia de Software", ra: "564");
-  bool mostrarSenha = false;
-
   @override
   Widget build(BuildContext context) {
+    Aluno aluno =
+        Aluno.personalizado(nome: "Leonardo", ra: "564", cpf: "097.560.179-29");
+    List<Curso> listaTurmas = [
+      Curso(nome: "Engenharia de Software", ano: "1"),
+      Curso(nome: "Engenharia Elétrica", ano: "1"),
+    ];
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("If diário"),
+        title: const Text("Fluxo de cadastro"),
       ),
       body: Center(
         child: Form(
@@ -37,13 +33,14 @@ class _CadastroState extends State<Cadastro> {
           Spacer(),
           Flexible(flex: 2, child: CampoFormularioTexto(campoTexto: "RA")),
           Spacer(),
-              CampoFormularioSelecao(
+          CampoFormularioSelecao(
+            campoTexto: "Informe o curso do seu interesse",
             listaItens: listaTurmas,
-            dropdownMenuItem: (value) => DropdownMenuItem(
-                value: value,
-                child: Text(value.nome),
-            ),
             valorInicial: listaTurmas.first,
+            dropdownMenuItem: (value) => DropdownMenuItem(
+              value: value,
+              child: Text(value.nome),
+            ),
           ),
           Spacer(),
           Flexible(

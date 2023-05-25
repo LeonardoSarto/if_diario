@@ -4,11 +4,13 @@ class CampoFormularioSelecao extends StatelessWidget {
   final List<dynamic> listaItens;
   Object? valorSelecao;
   Object? valorInicial;
+  String campoTexto;
   DropdownMenuItem<dynamic> Function(dynamic) dropdownMenuItem;
   final String? Function(dynamic)? validacao;
 
   CampoFormularioSelecao(
       {required this.listaItens,
+        required this.campoTexto,
       required this.dropdownMenuItem,
       this.valorSelecao,
       this.valorInicial,
@@ -25,7 +27,7 @@ class CampoFormularioSelecao extends StatelessWidget {
           .map<DropdownMenuItem>(dropdownMenuItem)
           .toList(),
       decoration: InputDecoration(
-        labelText: "Informe sua turma",
+        labelText: campoTexto,
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(22)),
       ),
       validator: validacao,

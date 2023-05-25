@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:if_diario/paginas/cadastro.dart';
+import 'package:if_diario/paginas/cadastro_tipo_pessoa.dart';
 import 'package:if_diario/paginas/inicial.dart';
 import 'package:if_diario/rota.dart';
 
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       routes: {
         Rota.inicial: (context) => const Inicial(),
         Rota.cadastro: (context) => const Cadastro(),
+        Rota.cadastroTipoPessoa: (context) => const CadastroTipoPessoa(),
       },
     );
   }

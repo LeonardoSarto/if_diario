@@ -18,7 +18,7 @@ class _InicialState extends State<Inicial> {
       body: Column(
         children: [
           FilledButton.icon(
-            onPressed: () => Navigator.pushNamed(context, Rota.cadastro),
+            onPressed: () => Navigator.pushNamed(context, Rota.cadastroTipoPessoa),
             label: Text("Conhecer o aplicativo"),
             icon: Icon(Icons.tab),
           )
