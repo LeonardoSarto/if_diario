@@ -9,13 +9,15 @@ class Conexao {
   static Future<Database> criar() async {
     if(_fechado){
       String path = join(await getDatabasesPath(), 'banco.db');
-      //deleteDatabase(path);
+      deleteDatabase(path);
       _database = await openDatabase(
         path,
         version: 1,
         onCreate: (db, v){
           db.execute(ScriptBd.criarTabelaAluno);
           db.execute(ScriptBd.criarTabelaCurso);
+          db.execute(ScriptBd.criarTabelaAlunoCurso);
+          db.execute(ScriptBd.criarTabelaPost);
           ScriptBd.insercaoCursos.forEach(db.execute);
         },
       );

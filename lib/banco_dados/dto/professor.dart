@@ -2,30 +2,30 @@ import 'package:if_diario/banco_dados/dto/curso.dart';
 import 'package:if_diario/banco_dados/dto/pessoa.dart';
 import 'package:if_diario/banco_dados/dto/tipo_pessoa.dart';
 
-class Aluno extends Pessoa {
+class Professor extends Pessoa {
   int? id;
   String ra;
 
-  Aluno(
+  Professor(
       {required super.nome,
       required super.telefone,
       this.id,
-      super.tipoPessoa = TipoPessoa.ALUNO,
+      super.tipoPessoa = TipoPessoa.PROFESSOR,
       required super.cpf,
       required super.email,
       required this.ra});
 
-  Aluno.cadastro(
+  Professor.cadastro(
       {required super.nome,
       required super.telefone,
       this.id,
-      super.tipoPessoa = TipoPessoa.ALUNO,
+      super.tipoPessoa = TipoPessoa.PROFESSOR,
       required super.cpf,
       required super.email,
       this.ra = ""});
 
-  static Aluno converterAluno(Map<dynamic, dynamic> resultado) {
-    return Aluno.cadastro(
+  static Professor converterProfessor(Map<dynamic, dynamic> resultado) {
+    return Professor.cadastro(
         id: resultado['id'],
         nome: resultado['nome'],
         telefone: resultado['telefone'],

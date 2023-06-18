@@ -39,16 +39,15 @@ class AlunoDaoSqlite implements DaoGenerico<Aluno, int> {
     Database db = await Conexao.criar();
     String sql;
     if (aluno.id == null) {
-      sql =
-          'INSERT INTO aluno (nome, telefone,email,cpf) VALUES (?,?,?,?)';
-      int id = await db.rawInsert(
-          sql, [aluno.nome, aluno.telefone, aluno.email, aluno.cpf]);
+      sql = 'INSERT INTO aluno (nome, telefone, email, cpf, ra) VALUES (?,?,?,?,?)';
+      int id = await db.rawInsert(sql, [aluno.nome, aluno.telefone, aluno.email, aluno.cpf, aluno.ra]);
       aluno = Aluno.cadastro(
         id: id,
         nome: aluno.nome,
         telefone: aluno.telefone,
         email: aluno.email,
         cpf: aluno.cpf,
+        ra: aluno.ra
       );
     } else {
       sql =

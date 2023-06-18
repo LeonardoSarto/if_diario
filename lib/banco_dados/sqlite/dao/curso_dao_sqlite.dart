@@ -19,8 +19,7 @@ class CursoDaoSqlite implements DaoGenerico<Curso, int> {
   @override
   Future<List<Curso>> consultarTodos() async {
     Database db = await Conexao.criar();
-    List<Curso> listaAlunos =
-        (await db.query("curso")).map<Curso>(Curso.converterCurso).toList();
+    List<Curso> listaAlunos = (await db.query("curso")).map<Curso>(Curso.converterCurso).toList();
     return listaAlunos;
   }
 
@@ -35,7 +34,7 @@ class CursoDaoSqlite implements DaoGenerico<Curso, int> {
   @override
   Future<Curso> salvar(Curso dados) async {
     Database db = await Conexao.criar();
-    String sql = 'INSERT INTO aluno (nome, nome, ano) VALUES (?,?)';
+    String sql = 'INSERT INTO curso (nome, ano) VALUES (?,?)';
     int id = await db.rawInsert(sql, [dados.nome, dados.ano]);
     dados = Curso(id: id, nome: dados.nome, ano: dados.ano);
     return dados;
